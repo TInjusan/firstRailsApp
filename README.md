@@ -6,4 +6,4 @@ This repository is for learning purposes
 
 * Each commit is a progression.
  
-* ...
+* This is a sample Blog page for Ruby on Rails beginners.
