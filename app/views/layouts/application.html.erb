@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <!--Display successful saving of articles using helper flash-->
+    <% flash.each do |name, msg| %>
+      <%= msg %>
+    <% end %>  
+
     <%= yield %>
     
   </body>
