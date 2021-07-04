@@ -1,10 +1,8 @@
 class ArticlesController < ApplicationController
+    #This is to run the set_article function which is the same for all the following method
+    before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-    def show
-        #Make it as instance variable by adding @ to the variable so that it will be accessible
-        # the params[:id] gets the id in the url (the last part of the GET HTTP request) http://localhost:3000/articles/1
-      
-        @article = Article.find(params[:id])
+    def show       
     end
     
     def index 
@@ -15,14 +13,14 @@ class ArticlesController < ApplicationController
         @article = Article.new
     end
     
-    def edit
-        @article = Article.find(params[:id])
+    def edit 
+        
     end
  
     
     def create 
- 
-        @article = Article.new(params.require(:article).permit(:title, :description))
+        #Inserted the article_params method to the parameters being passed here which is the same for all the others
+        @article = Article.new(article_params)
        
         if  @article.save
             flash[:notice] = "Article was created successfully."
@@ -33,21 +31,30 @@ class ArticlesController < ApplicationController
        
     end  
 
-    def update
-        @article = Article.find(params[:id])
-       if  @article.update(params.require(:article).permit(:title, :description))
-           flash[:notice] = "Article was updated successfully."
-           redirect_to  @article 
+    def update 
+       if  @article.update(article_params)
+        flash[:notice] = "Article was updated successfully."
+        redirect_to @article
        else
            render 'edit'
        end
     end
 
-    def destroy
-        @article = Article.find(params[:id])
+    def destroy 
         @article.destroy
         redirect_to  articles_path
     end
 
+    private
+
+    def set_article
+      @article = Article.find(params[:id])
+    end
+  
+    def article_params
+      params.require(:article).permit(:title, :description)
+    end
+    
+    #You don't put an end to a private access modifier, if you want to make a method private just put them below this.
 
 end
