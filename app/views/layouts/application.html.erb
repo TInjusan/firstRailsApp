@@ -10,7 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+<body class="d-flex flex-column">
+    <%= render 'layouts/navigation' %>
+    
     <!--Display successful saving of articles using helper flash-->
     <% flash.each do |name, msg| %>
       <%= msg %>
