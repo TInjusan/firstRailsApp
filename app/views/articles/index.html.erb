@@ -15,11 +15,28 @@
             <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
             <%= link_to "Delete", article_path(article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
           </div>
-          <div class="card-footer text-muted">
+          
+ <% if @article.created_at = nil %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">The following errors related to created at and updated at</h4>
+    <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+   </div>
+   <% else %> 
+        <div class="card-footer text-muted">
           <!--Getting the timestamp formatted and displayed to the html-->
-            <small>Created <%= time_ago_in_words(article.created_at) %> ago, 
-            edited <%= time_ago_in_words(article.updated_at) %> ago</small>
-          </div>
+            <small>Created <%= time_ago_in_words(@article.created_at) %> ago, 
+            edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+            
+        </div>
+ <% end %> 
+
         </div>
       </div>
     </div>

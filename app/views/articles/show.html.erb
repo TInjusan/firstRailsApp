@@ -16,7 +16,7 @@
          </div>  
 
 
- <% if @article.created_at.errors.any? %>
+ <% if @article.created_at = nil %>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <h4 class="alert-heading">The following errors related to created at and updated at</h4>
     <ul>
@@ -35,7 +35,7 @@
             edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
             
         </div>
-     <% end %> 
+ <% end %> 
 
 
 
