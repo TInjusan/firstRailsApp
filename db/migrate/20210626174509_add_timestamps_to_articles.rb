@@ -1,5 +1,6 @@
 class AddTimestampsToArticles < ActiveRecord::Migration[6.1]
   def change
-    add_column :articles, :created_by, :integer
+    add_column :articles, :created_by, :datetime
+    add_column :articles, :updated_at, :datetime
   end
 end
