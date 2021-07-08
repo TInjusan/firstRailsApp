@@ -17,3 +17,6 @@ rails generate migration add_notes_to_articles
 
 Run migration file for deployment in heroku
 heroku run rails db:migrate 
+
+Roll back migration:
+rails db:rollback
