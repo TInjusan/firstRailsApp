@@ -1,0 +1,19 @@
+Creating new rails app:
+rails new name_of_app
+
+
+Creating migration file in Ruby on Rails for database table:
+rails generate migration create_tables
+
+Running the migration file to apply changes to the database:
+rails db:migrate
+
+
+Removing mini profiler at top -left:
+https://stackoverflow.com/questions/65589200/how-to-remove-the-top-left-timer-counter-in-react-web-app
+
+Generate migration:
+rails generate migration add_notes_to_articles
+
+Run migration file for deployment in heroku
+heroku run rails db:migrate 
