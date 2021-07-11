@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :articles
+    has_secure_password
     
     #Converting all charaters in the email to lowercase
     before_save { self.email = email.downcase }

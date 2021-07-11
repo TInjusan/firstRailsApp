@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+#For password security of the app
+gem 'bcrypt', '~> 3.1.7'
+
 group :development, :test do
   
   gem 'sqlite3', '~> 1.4'
