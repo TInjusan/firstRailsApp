@@ -8,6 +8,7 @@
         <div class="col-md-8">  
             <p><strong>Title: </strong> <%= @article.title %></p>
             <p><strong>Description: <br></strong><%= @article.description %></p>
+             <p><strong>by: <br></strong><%= @article.user.username if @article.user  %></p>
         </div>     
         <div class="col-md-4">   
             <%=  link_to 'Edit',  edit_article_path(@article.id),  class: "btn btn-outline-info btn-block" %><br>
