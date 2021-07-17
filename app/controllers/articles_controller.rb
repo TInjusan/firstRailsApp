@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     def create 
         #Inserted the article_params method to the parameters being passed here which is the same for all the others
         @article = Article.new(article_params)
-        @article.user = User.first # <---This is where you attach the user. For now it is hardcoded but later you'll make it dynamic
+        @article.user = current_user # <---This is where you attach the user. For now it is hardcoded but later you'll make it dynamic
         if  @article.save
             flash[:notice] = "Article was created successfully."
             redirect_to  @article 
