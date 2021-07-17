@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :articles
-
+    has_many :articles, dependent: :destroy
+    
     #Converting all charaters in the email to lowercase
     before_save { self.email = email.downcase }
 
