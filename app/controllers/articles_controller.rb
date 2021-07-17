@@ -2,6 +2,9 @@ class ArticlesController < ApplicationController
     #This is to run the set_article function which is the same for all the following method
     before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
+
     def show       
     end
     
@@ -57,4 +60,12 @@ class ArticlesController < ApplicationController
     
     #You don't put an end to a private access modifier, if you want to make a method private just put them below this.
 
+
+    def require_same_user
+        if current_user != @article.user
+          flash[:alert] = "You can only edit or delete your own article"
+          redirect_to @article
+        end
+    end
+      
 end
