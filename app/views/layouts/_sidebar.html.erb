@@ -1,23 +1,10 @@
-<nav class="navbar-nav mr-auto nav-stacked" >
-    <ul class="navbar-nav mr-auto">
-      
-      <li class="nav-item">
-         <%= link_to "Bloggers", users_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Articles
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Articles list", articles_path, class: "dropdown-item"  %>
-          <% if logged_in? %>
-           <%= link_to "New Article", new_article_path, class: "dropdown-item"  %>
-          <% end %>
-          <div class="dropdown-divider"></div>
-        </div>
-      </li>
  
-              
-       
-    </ul>
-</nav>
+   
+     <div class="sidebar-heading border-bottom bg-light"> <%= link_to "ALPHA BLOG", root_path  %></div>
+     <div class="list-group list-group-flush">
+     <%= link_to "Bloggers", users_path, class: "list-group-item list-group-item-action list-group-item-light p-3" %>
+     <%= link_to "Articles list", articles_path, class: "list-group-item list-group-item-action list-group-item-light  p-3"  %>
+        <% if logged_in? %>
+            <%= link_to "New Article", new_article_path, class: "list-group-item list-group-item-action list-group-item-light  p-3"  %>
+        <% end %>
+    </div>

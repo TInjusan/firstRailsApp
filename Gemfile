@@ -27,7 +27,7 @@ gem 'will_paginate', '~> 3.1.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'octicons_helper'
 #For password security of the app
  
 group :development, :test do
